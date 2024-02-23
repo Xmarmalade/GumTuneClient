@@ -518,6 +518,13 @@ public class GumTuneClientConfig extends Config {
     public static OneColor espColor = new OneColor(26, 35, 143);
 
     @Switch(
+        name = "Dungeon Star Mobs ESP",
+        category = RENDER,
+        subcategory = ESPS
+)
+    public static boolean dungeonStarMobESP = false;
+
+    @Switch(
             name = "Arachne's Keeper ESP",
             category = RENDER,
             subcategory = ESPS

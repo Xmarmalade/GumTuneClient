@@ -122,6 +122,14 @@ public class ESPs {
         if (!GumTuneClientConfig.ESPs) return;
         if (event.entity instanceof EntityArmorStand) {
             switch (LocationUtils.currentIsland) {
+                case DUNGEON:
+                if (GumTuneClientConfig.dungeonStarMobESP && event.entity.hasCustomName()) {
+                    String name = event.entity.getName();
+                    if (name.contains("✯") || name.contains("Shadow Assassin") || name.contains("Frozen Adventurer")
+                            || name.contains("Lost Adventurer")) {
+                        highlightEntity(event.entity, name, Color.CYAN.getRGB());
+                    }
+                }
                 case SPIDER_DEN:
                     if (GumTuneClientConfig.arachneKeeperESP && event.entity.hasCustomName() && isArachneKeeper(event.entity)) {
                         List<Entity> possibleEntities = event.entity.getEntityWorld().getEntitiesInAABBexcluding(event.entity, event.entity.getEntityBoundingBox().offset(0, -1, 0), entity -> (!(entity instanceof EntityArmorStand) && entity != GumTuneClient.mc.thePlayer));
